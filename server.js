@@ -5,7 +5,6 @@ const connectdatabase = require("./config/database.js");
 connectdatabase();
 
 //----------------------DotEnv ---------------------//
-
 const dotenv = require("dotenv");
 dotenv.config({ path: "config/config.env" });
 
