@@ -2,18 +2,18 @@ const nodemailer = require("nodemailer");
 
 const sendEmail = async (option) => {
   const transporter = nodemailer.createTransport({
-    host: "smtp.verio.com", // SMTP server host
-    port: 465, // Port (587 for TLS)
-    secure: true, // Use TLS
+    host: process.env.SMPT_HOST,
+    port: process.env.SMPT_PORT,
+    secure: true,
     auth: {
-      user: "letsplay@ipropaganda.com", // Your Verio email address
-      pass: "Spring2023@April", // Your Verio email password
+      user: process.env.SMPT_MAIL,
+      pass: process.env.SMPT_PASSWORD,
     },
-    debug: true, // Enable debug output
+    debug: true,
   });
 
   const mailOptions = {
-    from: "letsplay@ipropaganda.com",
+    from: process.env.SMPT_MAIL,
     to: option.email,
     subject: option.subject,
     text: option.message,
